@@ -1,0 +1,18 @@
+h1 {
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    color: #333333;
+    font-style: normal;
+  }
+
+
+  .container-form{
+    width: 100;
+    max-width: 1100px;
+    margin:auto;
+    display: grid;
+    grid-template-columns: repeat(2,lfr);
+    grid: grap 50px;
+    margin-top: 90px;
+
+  }

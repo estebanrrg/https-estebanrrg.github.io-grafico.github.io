@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+   <link href="style4.css" rel="stylesheet">
+    <script type="text/javascript">
+        window.onload = function() {
+            var dps = []; //dataPoints. 
+
+            var chart = new CanvasJS.Chart("chartContainer", {
+                title: {
+                    text: "Registo de Ventas"
+                },
+                data: [{
+                    type: "line",
+                    dataPoints: dps
+                }]
+            });
+
+            function addDataPointsAndRender() {
+                xValue = Number(document.getElementById("xValue").value);
+                yValue = Number(document.getElementById("yValue").value);
+                dps.push({
+                    x: xValue,
+                    y: yValue
+                });
+                chart.render();
+            }
+
+            var renderButton = document.getElementById("renderButton");
+            renderButton.addEventListener("click", addDataPointsAndRender);
+        }
+    </script>
+    <script type="text/javascript" src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+</head>
+
+<body bgcolor="#58f0d6">
+    <h1>Registro de Ventas Por Empleado</h1><br><br><br><br><br>
+    <p>Nombre Empleado: <input id="nombre" text="nombre" size="50" placeholder="Nombre Completo" class="campo">
+       Año<input id="nombre" text="nombre" size="8" placeholder="Año en curso" class="campo">
+        <div class="col-md-2">
+            <label for="inputState" class="form-label">Mes</label>
+            <select name="sexo" class="campo" required>
+              <option value="selecciona">Mes en curso</option>
+              <option value="ene">Enero</option>
+              <option value="fb">Febrero</option>
+              <option value="Marzo">Marzo</option>
+              <option value="abr">Abril</option>
+              <option value="Myo">Mayo</option>
+              <option value="JN">Junio</option>
+              <option value="jl">Julio</option>
+              <option value="Ag">Agosto</option>
+              <option value="sept">Septiembre</option>
+              <option value="Oct">Octubre</option>
+              <option value="ene">Noviembre</option>
+              <option value="ene">Diciembre</option>
+           
+            </select>
+          </div>
+  
+   
+    
+    <br><br><br><br><br>
+   Desde:
+    <input id="xValue" type="number" step="any" placeholder="Mínimo de venta" class="campo"> Hasta
+    <input id="yValue" type="number" step="any" placeholder="Máximo de ventas" class="campo">
+    <button id="renderButton">Mostrar Gráfica</button>
+    <div id="chartContainer" style="height: 270px; width: 100%;">
+    </div>
+</body>
+
+</html>
